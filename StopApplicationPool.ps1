@@ -7,10 +7,6 @@ Param (
 
 Write-Host "Trying to stop application pool: $ApplicationPool"
 
-if ($AppConfig -eq $Null) {
-	$AppConfig = Get-AppConfig $Site
-}
-
 $WebServerСommand = {
 	param (
 		$ApplicationPool
