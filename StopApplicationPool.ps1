@@ -38,4 +38,4 @@ $WebServerСommand = {
 }
 
 
-Invoke-RemoteCommand -Server $WebServer -Command $WebServerСommand -ArgumentList $ApplicationPool
+Invoke-Command -Server $WebServer -Command $WebServerСommand -ArgumentList $ApplicationPool
