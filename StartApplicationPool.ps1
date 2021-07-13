@@ -25,7 +25,7 @@ $WebServerСommand = {
 			if ($Counter -gt 120) {
 				throw "Application pool is not start too long"
 			}
-			Stop-WebAppPool -Name $ApplicationPool
+			Start-WebAppPool -Name $ApplicationPool
 			Write-Output "Waiting until application pool start 5 seconds..."
 			Start-Sleep -Seconds 5
 			Write-Output "Getting application pool `'$ApplicationPool`' state information"
