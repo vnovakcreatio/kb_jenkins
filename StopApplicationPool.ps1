@@ -14,6 +14,11 @@ $WebServerСommand = {
 	
 	Import-Module WebAdministration
 	
+	if(!Test-Path IIS:\AppPools\$ApplicationPool)
+	{
+		throw "Application pool $ApplicationPool is not exists"
+	}
+	
 	Write-Output "Stopping application pool $ApplicationPool"
 	
 	$PoolState = (Get-WebAppPoolState -Name $ApplicationPool).Value
@@ -22,7 +27,7 @@ $WebServerСommand = {
 		$Counter = 0
 		do {
 			$Counter += 1
-			if ($Counter -gt 120) {
+			if ($Counter -gt 20) {
 				throw "Application pool is not stopped too long"
 			}
 			Stop-WebAppPool -Name $ApplicationPool
