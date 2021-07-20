@@ -7,17 +7,19 @@ Param (
 
 Write-Host "Trying to start application pool: $ApplicationPool"
 
-$WebServerСommand = {
+$WebServerCommand = {
 	param (
 		$ApplicationPool
 	)
 	
 	Import-Module WebAdministration
 	
-	if(!Test-Path IIS:\AppPools\$ApplicationPool)
+	if(!(Test-Path IIS:\AppPools\$ApplicationPool))
 	{
-		throw "Application pool $ApplicationPool is not exists"
+		Write-Error "Application pool $ApplicationPool is not exists"
+		return
 	}
+	
 	
 	Write-Output "Starting application pool $ApplicationPool"
 	
@@ -43,4 +45,4 @@ $WebServerСommand = {
 }
 
 
-Invoke-Command -ComputerName $WebServer -Command $WebServerСommand -ArgumentList $ApplicationPool
+Invoke-Command -ComputerName $WebServer -Command $WebServerCommand -ArgumentList $ApplicationPool

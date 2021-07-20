@@ -7,7 +7,7 @@ Param (
 
 Write-Host "Trying to stop application pool: $ApplicationPool"
 
-$WebServerСommand = {
+$WebServerCommand = {
 	param (
 		$ApplicationPool
 	)
@@ -44,4 +44,4 @@ $WebServerСommand = {
 }
 
 
-Invoke-Command -ComputerName $WebServer -Command $WebServerСommand -ArgumentList $ApplicationPool
+Invoke-Command -ComputerName $WebServer -Command $WebServerCommand -ArgumentList $ApplicationPool
