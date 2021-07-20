@@ -14,9 +14,10 @@ $WebServerСommand = {
 	
 	Import-Module WebAdministration
 	
-	if(!Test-Path IIS:\AppPools\$ApplicationPool)
+	if(-not Test-Path IIS:\AppPools\$ApplicationPool)
 	{
-		throw "Application pool $ApplicationPool is not exists"
+		Write-Output "Application pool $ApplicationPool is not exists"
+		return
 	}
 	
 	Write-Output "Stopping application pool $ApplicationPool"
