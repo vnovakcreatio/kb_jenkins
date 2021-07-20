@@ -16,7 +16,7 @@ $WebServerСommand = {
 	
 	if(!(Test-Path IIS:\AppPools\$ApplicationPool))
 	{
-		Write-Output "Application pool $ApplicationPool is not exists"
+		Write-Error "Application pool $ApplicationPool is not exists"
 		return
 	}
 	
