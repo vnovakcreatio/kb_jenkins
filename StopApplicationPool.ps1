@@ -14,7 +14,7 @@ $WebServerСommand = {
 	
 	Import-Module WebAdministration
 	
-	if(-not Test-Path IIS:\AppPools\$ApplicationPool)
+	if(!(Test-Path IIS:\AppPools\$ApplicationPool))
 	{
 		Write-Output "Application pool $ApplicationPool is not exists"
 		return
